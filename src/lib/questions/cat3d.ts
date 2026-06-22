@@ -1,0 +1,12 @@
+import { Question } from '../../types';
+
+export const CAT3D_QUESTIONS: Question[] = [
+// III-D-a: 筋活動（7問）
+  { id: 'q-3d-a-01', category_id: 'cat-3d', body: 'ベントオーバーローを行う中で、脊柱起立筋の筋活動は次のうちどれ', choices: [{ label: 'a', text: 'コンセントリック' }, { label: 'b', text: 'アイソメトリック' }, { label: 'c', text: 'エキセントリック' }], correct_choice: 'b', explanation: '身体が屈曲しないよう保持する為、脊柱起立筋が働いている', source: 'NEXT TRAINER LAB', is_free: true, display_order: 1 },
+  { id: 'q-3d-a-02', category_id: 'cat-3d', body: 'シーテッドロウにて持ち手を身体から離していく局面の広背筋の筋活動は次のうちどれ', choices: [{ label: 'a', text: 'アイソメトリック' }, { label: 'b', text: 'コンセントリック' }, { label: 'c', text: 'エキセントリック' }], correct_choice: 'c', explanation: '身体から持ち手を離していく局面は、広背筋は伸びエキセントリック', source: 'NEXT TRAINER LAB', is_free: true, display_order: 2 },
+  { id: 'q-3d-a-03', category_id: 'cat-3d', body: 'バイセップスカールで肘を曲げたとき上腕二頭筋の筋活動は次のうちどれ', choices: [{ label: 'a', text: 'アイソメトリック' }, { label: 'b', text: 'エキセントリック' }, { label: 'c', text: 'コンセントリック' }], correct_choice: 'c', explanation: '肘を曲げた時の上腕二頭筋はコンセントリック', source: 'NEXT TRAINER LAB', is_free: true, display_order: 3 },
+  { id: 'q-3d-a-04', category_id: 'cat-3d', body: 'トライセプスエクステンションで肘を伸ばしたとき上腕三頭筋の筋活動は次のうちどれ', choices: [{ label: 'a', text: 'コンセントリック' }, { label: 'b', text: 'アイソメトリック' }, { label: 'c', text: 'エキセントリック' }], correct_choice: 'a', explanation: '肘を伸ばしたとき上腕三頭筋は収縮していく', source: 'NEXT TRAINER LAB', is_free: true, display_order: 4 },
+  { id: 'q-3d-a-05', category_id: 'cat-3d', body: 'フォワードランジにて前方に足を出した局面の後ろの足の大腿四頭筋の筋活動は次のうちどれ', choices: [{ label: 'a', text: 'コンセントリック' }, { label: 'b', text: 'エキセントリック' }, { label: 'c', text: 'アイソメトリック' }], correct_choice: 'b', explanation: 'フォワードランジにて後ろの足の大腿四頭筋は伸張しているため', source: 'NEXT TRAINER LAB', is_free: true, display_order: 5 },
+  { id: 'q-3d-a-06', category_id: 'cat-3d', body: 'ラテラルレイズにて腕を下ろす局面の三角筋の筋活動は次のうちどれ', choices: [{ label: 'a', text: 'エキセントリック' }, { label: 'b', text: 'アイソメトリック' }, { label: 'c', text: 'コンセントリック' }], correct_choice: 'a', explanation: 'ラテラルレイズは腕を上げるとき三角筋が収縮し下ろす局面にエキセントリックになる', source: 'NEXT TRAINER LAB', is_free: true, display_order: 6 },
+  { id: 'q-3d-a-07', category_id: 'cat-3d', body: 'ベンチプレスにてバーベルを上げた際、コンセントリック活動は次のうちどれ', choices: [{ label: 'a', text: '上腕二頭筋' }, { label: 'b', text: '広背筋' }, { label: 'c', text: '大胸筋' }], correct_choice: 'c', explanation: 'ベンチプレスにてバーベルを上げた際は、大胸筋はコンセントリック', source: 'NEXT TRAINER LAB', is_free: true, display_order: 7 },
+];

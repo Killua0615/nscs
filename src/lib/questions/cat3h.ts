@@ -1,7 +1,7 @@
 import { Question } from '../../types';
 
 export const CAT3H_QUESTIONS: Question[] = [
-// III-H-a: 自重・スタビリティボール（7問）
+// III-H-a: 自重・スタビリティボール（9問）
   { id: 'q-3h-a-01', category_id: 'cat-3h', body: 'スタビリティボールでのバランス能力は次のうちどの能力か', choices: [{ label: 'a', text: '安定している接地面で不安定な姿勢にて負荷を挙げる能力' }, { label: 'b', text: '不安定な接地面でバランスを保持する能力' }, { label: 'c', text: '安定している接地面で負荷を挙げる能力' }], correct_choice: 'b', explanation: '不安定な接地面でバランスを保つ能力＝サーフィン・乗馬 安定している接地面で不安定な姿勢にて負荷を挙げる能力＝ウォーターバック', source: 'NEXT TRAINER LAB', is_free: true, display_order: 1 },
   { id: 'q-3h-a-02', category_id: 'cat-3h', body: '自重エクササイズの説明として正しいのは次のうちどれ', choices: [{ label: 'a', text: '大きな負荷をかけやすい' }, { label: 'b', text: '日常動作での特異性が高い' }, { label: 'c', text: '引く筋力がより鍛えられる' }], correct_choice: 'b', explanation: '自重エクササイズは日常動作での特異性が高い。引く動作は鍛えにくい。レジスタンストレーニングと違い、大きな負荷はかけにくい', source: 'NEXT TRAINER LAB', is_free: true, display_order: 2 },
   { id: 'q-3h-a-03', category_id: 'cat-3h', body: 'スタビリティボールを使用してシットアップを行う際、最も負荷が漸進するのはどれか', choices: [{ label: 'a', text: '足を大きく開いて行う' }, { label: 'b', text: '両手を後頭部につけて行う' }, { label: 'c', text: '足を離して行う' }], correct_choice: 'b', explanation: '手を後頭部についけることで負荷が一番漸進する', source: 'NEXT TRAINER LAB', is_free: true, display_order: 3 },
@@ -9,4 +9,6 @@ export const CAT3H_QUESTIONS: Question[] = [
   { id: 'q-3h-a-05', category_id: 'cat-3h', body: 'スタビリティボールを使用して、バックエクステンションを行う際、ボールの頂点を合わせるのは次のうちどれ', choices: [{ label: 'a', text: '胸部' }, { label: 'b', text: '大腿部' }, { label: 'c', text: '腹部' }], correct_choice: 'c', explanation: 'バックエクステンションを行う場合は腹部（臍）に合わせて行う', source: 'NEXT TRAINER LAB', is_free: true, display_order: 5 },
   { id: 'q-3h-a-06', category_id: 'cat-3h', body: 'スタビリティボールを選ぶ際に、適切なのは次のうちどれ', choices: [{ label: 'a', text: '自分の好みのもの' }, { label: 'b', text: '座った時に床とももが平行になるサイズ' }, { label: 'c', text: '男性は大きいもの、女性は小さいもの' }], correct_choice: 'b', explanation: 'スタビリティボールを選ぶ基準としては、座った時に床とももが平行になるもの', source: 'NEXT TRAINER LAB', is_free: true, display_order: 6 },
   { id: 'q-3h-a-07', category_id: 'cat-3h', body: 'スタビリティボールを使用してプッシュアップを行う際、最も負荷を漸進するのはどれか', choices: [{ label: 'a', text: '両足をスタビリティボールの上に置く' }, { label: 'b', text: '両手をスタビリティボールの上に置く' }, { label: 'c', text: '腹部の下にスタビリティボールを置く' }], correct_choice: 'a', explanation: '両足をスタビリテボールに置いて行うのが最も漸進した方法になる', source: 'NEXT TRAINER LAB', is_free: true, display_order: 7 },
+  { id: 'q-3h-a-08', category_id: 'cat-3h', body: '自重エクササイズで鍛えにくい動作は次のうちどれ', choices: [{ label: 'a', text: '押す動作' }, { label: 'b', text: '引く動作' }, { label: 'c', text: 'しゃがむ動作' }], correct_choice: 'b', explanation: '自重エクササイズでは引く動作が鍛えにくいという特徴がある', source: 'NEXT TRAINER LAB', is_free: true, display_order: 8 },
+  { id: 'q-3h-a-09', category_id: 'cat-3h', body: '自重エクササイズとレジスタンストレーニングの違いとして正しいのは次のうちどれ', choices: [{ label: 'a', text: '自重エクササイズはレジスタンストレーニングより大きな負荷をかけやすい' }, { label: 'b', text: '自重エクササイズはレジスタンストレーニングと比べ日常動作での特異性が低い' }, { label: 'c', text: '自重エクササイズはレジスタンストレーニングと比べ大きな負荷をかけにくい' }], correct_choice: 'c', explanation: '自重エクササイズはレジスタンストレーニングと違い、大きな負荷はかけにくいが、日常動作での特異性が高いという特徴がある', source: 'NEXT TRAINER LAB', is_free: true, display_order: 9 },
 ];

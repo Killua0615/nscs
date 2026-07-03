@@ -1,7 +1,7 @@
 import { Question } from '../../types';
 
 export const CAT3E_QUESTIONS: Question[] = [
-// III-E-a: 呼吸法（9問）
+// III-E-a: 呼吸法（12問）
   { id: 'q-3e-a-01', category_id: 'cat-3e', body: 'スクワットを行う際に、息を吸う局面は次のうちどれ', choices: [{ label: 'a', text: '息は止めて行う' }, { label: 'b', text: 'バーベルを上に上げている局面' }, { label: 'c', text: 'バーベルを下げている局面' }], correct_choice: 'c', explanation: 'バーベルを下げている局面が、主働筋（大腿部）のエキセントリック局面', source: 'NEXT TRAINER LAB', is_free: true, display_order: 1 },
   { id: 'q-3e-a-02', category_id: 'cat-3e', body: 'バルサルバ法を使用するエクササイズは次のうちどれ', choices: [{ label: 'a', text: 'バイセップスカール' }, { label: 'b', text: 'ショルダープレス' }, { label: 'c', text: 'シーテッドロウ' }], correct_choice: 'b', explanation: 'ショルダープレスは背骨に対して負荷がかかる種目の為', source: 'NEXT TRAINER LAB', is_free: true, display_order: 2 },
   { id: 'q-3e-a-03', category_id: 'cat-3e', body: 'バルサルバ法の処方条件に当てはまるのは次のいくつあるか\n①トレーニング上級者 ②元アスリートの高齢者 ③スクワット\n④ベンチプレス ⑤バイセップスカール ⑥ショルダープレス', choices: [{ label: 'a', text: '4つ' }, { label: 'b', text: '2つ' }, { label: 'c', text: '3つ' }], correct_choice: 'c', explanation: '処方条件に当てはまるのはトレーニング上級者・スクワット・ショルダープレス', source: 'NEXT TRAINER LAB', is_free: true, display_order: 3 },
@@ -11,4 +11,7 @@ export const CAT3E_QUESTIONS: Question[] = [
   { id: 'q-3e-a-07', category_id: 'cat-3e', body: 'エクササイズを行う際に、息を吸う局面は次のうちどれ', choices: [{ label: 'a', text: '主働筋のアイソメトリック局面' }, { label: 'b', text: '主働筋のエキセントリック局面' }, { label: 'c', text: '主働筋のコンセントリック局面' }], correct_choice: 'b', explanation: '息を吸うのは主働筋のエキセントリック局面', source: 'NEXT TRAINER LAB', is_free: true, display_order: 7 },
   { id: 'q-3e-a-08', category_id: 'cat-3e', body: 'ベンチプレスを行う際に、息を吸う局面は次のうちどれ', choices: [{ label: 'a', text: '息は止めて行う' }, { label: 'b', text: 'バーベルを胸に下げている局面' }, { label: 'c', text: 'バーベルを上に上げている局面' }], correct_choice: 'b', explanation: 'バーベルを胸に下げている局面が、主働筋（大胸筋）のエキセントリック局面', source: 'NEXT TRAINER LAB', is_free: true, display_order: 8 },
   { id: 'q-3e-a-09', category_id: 'cat-3e', body: 'バルサルバ法の説明として正しいのは次のうちどれ', choices: [{ label: 'a', text: 'トレーニングの初心者から使っても良い' }, { label: 'b', text: '背骨に対して負荷がかかる種目で行う' }, { label: 'c', text: 'BIG3を行う際に使用する' }], correct_choice: 'b', explanation: 'ベンチプレスは条件に該当しないため推奨されていない', source: 'NEXT TRAINER LAB', is_free: true, display_order: 9 },
+  { id: 'q-3e-a-10', category_id: 'cat-3e', body: 'バルサルバ法とはどのような呼吸法か', choices: [{ label: 'a', text: 'コンセントリック局面で息を吐く呼吸法' }, { label: 'b', text: '息を止めてエクササイズを行う呼吸法' }, { label: 'c', text: 'エキセントリック局面で深く息を吸う呼吸法' }], correct_choice: 'b', explanation: 'バルサルバ法とは息を止めてエクササイズを行う呼吸法である。処方条件としてストラクチュアルエクササイズであること、トレーニング上級者であることが必要', source: 'NEXT TRAINER LAB', is_free: true, display_order: 10 },
+  { id: 'q-3e-a-11', category_id: 'cat-3e', body: 'ベンチプレスを行う際に、息を吐く局面は次のうちどれ', choices: [{ label: 'a', text: 'バーベルを胸に下げている局面' }, { label: 'b', text: 'バーベルを上に上げている局面' }, { label: 'c', text: 'バーベルを保持して静止している局面' }], correct_choice: 'b', explanation: 'バーベルを上に上げている局面が、主働筋（大胸筋）のコンセントリック局面であり、息を吐く', source: 'NEXT TRAINER LAB', is_free: true, display_order: 11 },
+  { id: 'q-3e-a-12', category_id: 'cat-3e', body: 'ベンチプレスでバルサルバ法を使用しない理由として正しいのは次のうちどれ', choices: [{ label: 'a', text: '高重量を扱えないため' }, { label: 'b', text: '背骨に対して負荷がかからない種目であるため' }, { label: 'c', text: '補助者がいるため必要ないから' }], correct_choice: 'b', explanation: 'バルサルバ法はストラクチュアルエクササイズ（背骨に対して負荷がかかる種目）が条件。ベンチプレスは背骨に直接負荷がかからないため該当しない', source: 'NEXT TRAINER LAB', is_free: true, display_order: 12 },
 ];

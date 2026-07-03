@@ -1,10 +1,13 @@
 import { Question } from '../../types';
 
 export const CAT3C_QUESTIONS: Question[] = [
-// III-C-a: ウエイトベルト（5問）
+// III-C-a: ウエイトベルト（8問）
   { id: 'q-3c-a-01', category_id: 'cat-3c', body: 'ウエイトベルトの使用条件は次のうちどれ', choices: [{ label: 'a', text: 'パワーエクササイズかつ高重量' }, { label: 'b', text: 'ストラクチャルエクササイズかつ高重量' }, { label: 'c', text: 'BIG３の種目のみ' }], correct_choice: 'b', explanation: '使用条件に該当するのは、ストラクチャルエクササイズかつ高重量', source: 'NEXT TRAINER LAB', is_free: true, display_order: 1 },
   { id: 'q-3c-a-02', category_id: 'cat-3c', body: 'ウエイトベルト使用したほうが良いのは次のうちどれ', choices: [{ label: 'a', text: 'ショルダープレス' }, { label: 'b', text: 'ベントオーバーロー' }, { label: 'c', text: 'トライセプスエクステンション' }], correct_choice: 'a', explanation: 'ショルダープレスは背骨に対して負荷がかかる種目になるため', source: 'NEXT TRAINER LAB', is_free: true, display_order: 2 },
   { id: 'q-3c-a-03', category_id: 'cat-3c', body: 'ウエイトベルト使用したほうが良いのは次のうちどれ', choices: [{ label: 'a', text: 'ラテラルレイズ' }, { label: 'b', text: 'バイセップスカール' }, { label: 'c', text: 'パワークリーン' }], correct_choice: 'c', explanation: 'パワークリーンが使用条件に該当する', source: 'NEXT TRAINER LAB', is_free: true, display_order: 3 },
   { id: 'q-3c-a-04', category_id: 'cat-3c', body: 'ウエイトベルトの使用しない種目は次のうちどれ', choices: [{ label: 'a', text: 'デットリフト' }, { label: 'b', text: 'スクワット' }, { label: 'c', text: 'ベンチプレス' }], correct_choice: 'c', explanation: 'ベンチプレスはコアエクササイズの為', source: 'NEXT TRAINER LAB', is_free: true, display_order: 4 },
   { id: 'q-3c-a-05', category_id: 'cat-3c', body: 'ウエイトベルトを使用したほうが良いのは次のうちどれ', choices: [{ label: 'a', text: '12RM' }, { label: 'b', text: '7RM' }, { label: 'c', text: '3RM' }], correct_choice: 'c', explanation: '高負荷かつ6RM以下の時', source: 'NEXT TRAINER LAB', is_free: true, display_order: 5 },
+  { id: 'q-3c-a-06', category_id: 'cat-3c', body: 'ウエイトベルトを使用する負荷の基準として正しいのは次のうちどれ', choices: [{ label: 'a', text: '70%1RM以上' }, { label: 'b', text: '85%1RM以上' }, { label: 'c', text: '90%1RM以上' }], correct_choice: 'b', explanation: 'ウエイトベルトの使用条件は6RM以下、すなわち85%1RM以上の高負荷時', source: 'NEXT TRAINER LAB', is_free: true, display_order: 6 },
+  { id: 'q-3c-a-07', category_id: 'cat-3c', body: 'ウエイトベルトの使用が推奨される種目の組み合わせとして正しいのは次のうちどれ', choices: [{ label: 'a', text: 'スクワット・ベンチプレス・デッドリフト' }, { label: 'b', text: 'スクワット・デッドリフト・パワースナッチ' }, { label: 'c', text: 'ベンチプレス・ベントオーバーロウ・バイセップスカール' }], correct_choice: 'b', explanation: 'ウエイトベルトの使用が推奨される種目はスクワット、デッドリフト、パワークリーン、パワースナッチ、ショルダープレス、ジャーク。ベンチプレスはコアエクササイズであり該当しない', source: 'NEXT TRAINER LAB', is_free: true, display_order: 7 },
+  { id: 'q-3c-a-08', category_id: 'cat-3c', body: 'ウエイトベルトの使用が推奨される種目にベントオーバーロウは含まれるか', choices: [{ label: 'a', text: '含まれる' }, { label: 'b', text: '含まれないが、推奨種目が選択肢にない場合は選択してよい' }, { label: 'c', text: '含まれないため、いかなる場合も選択しない' }], correct_choice: 'b', explanation: 'ベントオーバーロウは推奨種目リスト（スクワット、デッドリフト、パワークリーン、パワースナッチ、ショルダープレス、ジャーク）には含まれないが、これらが選択肢にない場合は選択するとよい', source: 'NEXT TRAINER LAB', is_free: true, display_order: 8 },
 ];

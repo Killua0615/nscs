@@ -1,13 +1,23 @@
 {
   "expo": {
-    "name": "app",
-    "slug": "app",
+    "name": "NSCA-CPT 試験対策",
+    "slug": "nsca-cpt-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#E8F5E9"
+    },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.natsumi.nscacpt",
+      "buildNumber": "1",
+      "infoPlist": {
+        "CFBundleDisplayName": "NSCA-CPT 試験対策"
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -16,10 +26,21 @@
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
+      "package": "com.natsumi.nscacpt",
+      "versionCode": 1,
       "predictiveBackGestureEnabled": false
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": ""
+      }
+    },
+    "owner": "natsumi",
+    "plugins": [
+      "expo-secure-store"
+    ]
   }
 }

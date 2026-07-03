@@ -33,10 +33,10 @@ type Route = RouteProp<RootStackParamList, 'Exercise'>;
 export function ExerciseScreen() {
   const navigation = useNavigation<Nav>();
   const route = useRoute<Route>();
-  const { sourceType, sourceId, filter, count, isQuiz } = route.params;
+  const { sourceType, sourceId, filter, count, isQuiz, startIndex } = route.params;
   const { statuses, updateAfterAnswer, setManualStatus } = useApp();
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(startIndex || 0);
   const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
   const [isAnswered, setIsAnswered] = useState(false);
   const scrollRef = useRef<ScrollView>(null);
@@ -45,6 +45,7 @@ export function ExerciseScreen() {
   const [reportReason, setReportReason] = useState('');
 
   const [initialStatuses] = useState(() => statuses);
+  const [loopCount, setLoopCount] = useState(0);
 
   const questions = useMemo(() => {
     let qs: Question[];
@@ -81,7 +82,8 @@ export function ExerciseScreen() {
     }
 
     return qs;
-  }, [sourceType, sourceId, filter, count, isQuiz, initialStatuses]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sourceType, sourceId, filter, count, isQuiz, initialStatuses, loopCount]);
 
   const currentQuestion = questions[currentIndex];
   const totalQuestions = questions.length;
@@ -128,26 +130,36 @@ export function ExerciseScreen() {
     moveNext();
   }, [currentQuestion, statuses]);
 
+  const finishSession = useCallback(() => {
+    navigation.replace('ResultSummary', {
+      results: sessionResults,
+      scope: scopeName,
+      scopeId: sourceType === 'all' ? 'all' : sourceId,
+      isQuiz: isQuiz || false,
+    });
+  }, [sessionResults, navigation, scopeName, isQuiz, sourceType, sourceId]);
+
+  const handleLoop = useCallback(() => {
+    setLoopCount((c) => c + 1);
+    setCurrentIndex(0);
+    setSelectedChoice(null);
+    setIsAnswered(false);
+    scrollRef.current?.scrollTo({ y: 0, animated: false });
+  }, []);
+
   const moveNext = useCallback(() => {
     if (currentIndex + 1 >= totalQuestions) {
-      // Session complete
-      const results = [...sessionResults];
-      if (isAnswered && currentQuestion) {
-        // Already added in handleAnswer
+      if (isQuiz) {
+        finishSession();
       }
-      navigation.replace('ResultSummary', {
-        results: sessionResults,
-        scope: scopeName,
-        scopeId: sourceType === 'all' ? 'all' : sourceId,
-        isQuiz: isQuiz || false,
-      });
+      // For exercise mode, buttons handle this (loop or finish)
       return;
     }
     setCurrentIndex((i) => i + 1);
     setSelectedChoice(null);
     setIsAnswered(false);
     scrollRef.current?.scrollTo({ y: 0, animated: false });
-  }, [currentIndex, totalQuestions, sessionResults, navigation, scopeName, isQuiz, currentQuestion, isAnswered]);
+  }, [currentIndex, totalQuestions, isQuiz, finishSession]);
 
   const handleManualStatus = useCallback(
     async (status: StatusType) => {
@@ -242,14 +254,14 @@ export function ExerciseScreen() {
 
             {/* Explanation */}
             <View style={styles.explanationBox}>
-              <Text style={styles.explanationText}>{currentQuestion.explanation}</Text>
+              <Text selectable style={styles.explanationText}>{currentQuestion.explanation}</Text>
             </View>
 
-            {/* Reference note */}
-            {getNoteForQuestion(currentQuestion.id) && (
+            {/* Reference note (hide in quiz mode) */}
+            {!isQuiz && getNoteForQuestion(currentQuestion.id) && (
               <View style={styles.noteBox}>
                 <Text style={styles.noteTitle}>参考</Text>
-                <Text style={styles.noteText}>{getNoteForQuestion(currentQuestion.id)}</Text>
+                <Text selectable style={styles.noteText}>{getNoteForQuestion(currentQuestion.id)}</Text>
               </View>
             )}
 
@@ -263,11 +275,22 @@ export function ExerciseScreen() {
             </View>
 
             <View style={styles.actionRow}>
-              <TouchableOpacity style={styles.nextBtn} onPress={moveNext}>
-                <Text style={styles.nextText}>
-                  {currentIndex + 1 >= totalQuestions ? '結果を見る' : '次へ'}
-                </Text>
-              </TouchableOpacity>
+              {currentIndex + 1 >= totalQuestions && !isQuiz ? (
+                <>
+                  <TouchableOpacity style={styles.loopBtn} onPress={handleLoop}>
+                    <Text style={styles.loopText}>もう1周</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.nextBtn} onPress={finishSession}>
+                    <Text style={styles.nextText}>結果を見る</Text>
+                  </TouchableOpacity>
+                </>
+              ) : (
+                <TouchableOpacity style={styles.nextBtn} onPress={moveNext}>
+                  <Text style={styles.nextText}>
+                    {currentIndex + 1 >= totalQuestions ? '結果を見る' : '次へ'}
+                  </Text>
+                </TouchableOpacity>
+              )}
             </View>
           </>
         )}
@@ -418,6 +441,15 @@ const styles = StyleSheet.create({
   sourceText: { fontSize: FONT_SIZES.sm, color: COLORS.textSecondary, marginTop: SPACING.sm },
   statusSection: { marginTop: SPACING.lg, marginBottom: SPACING.md },
   statusLabel: { fontSize: FONT_SIZES.md, fontWeight: '600', color: COLORS.text, marginBottom: SPACING.sm },
+  loopBtn: {
+    flex: 1,
+    paddingVertical: SPACING.md,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: COLORS.primary,
+    alignItems: 'center',
+  },
+  loopText: { fontSize: FONT_SIZES.md, color: COLORS.primary, fontWeight: '700' },
   nextBtn: {
     flex: 1,
     paddingVertical: SPACING.md,

@@ -190,7 +190,7 @@ export function ExerciseScreen() {
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => setShowReport(true)}>
-          <Text style={styles.reportBtn}>誤りを通報</Text>
+          <Text style={styles.reportBtn}>間違いを報告</Text>
         </TouchableOpacity>
         <Text style={styles.headerTitle}>
           {scopeName} ({currentIndex + 1}/{totalQuestions})
@@ -300,10 +300,10 @@ export function ExerciseScreen() {
       <Modal visible={showReport} transparent animationType="fade">
         <View style={styles.modalOverlay}>
           <View style={styles.reportModal}>
-            <Text style={styles.reportTitle}>誤りを通報</Text>
+            <Text style={styles.reportTitle}>間違いを報告</Text>
             <TextInput
               style={styles.reportInput}
-              placeholder="問題・解説の誤りの内容を入力"
+              placeholder="どこがどう間違っているか教えてください"
               value={reportReason}
               onChangeText={setReportReason}
               multiline
@@ -315,9 +315,16 @@ export function ExerciseScreen() {
                 <Text style={styles.reportCancel}>キャンセル</Text>
               </TouchableOpacity>
               <TouchableOpacity
-                onPress={() => {
-                  // TODO: Save report to storage/supabase
-                  Alert.alert('送信完了', '通報を受け付けました');
+                onPress={async () => {
+                  const content = `【問題ID】${currentQuestion.id}\n【問題文】${currentQuestion.body}\n【報告内容】${reportReason}`;
+                  const formUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSeCq3GAEIVOnCqeINni7FFk4_ttMSS-w54mwQVYJz29F0-yuA/formResponse';
+                  const body = `entry.391592360=${encodeURIComponent(content)}`;
+                  try {
+                    await fetch(formUrl, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body });
+                    Alert.alert('送信完了', 'ご報告ありがとうございます');
+                  } catch {
+                    Alert.alert('送信失敗', '通信エラーが発生しました。時間をおいて再度お試しください');
+                  }
                   setShowReport(false);
                   setReportReason('');
                 }}
